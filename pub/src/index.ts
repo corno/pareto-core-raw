@@ -1,3 +1,5 @@
 
-export * from "./functions/wrapRawDictionary"
-export * from "./functions/wrapRawArray"
+export {
+    wrapRawArray,
+    wrapRawDictionary,
+} from "pareto-core-internals"
