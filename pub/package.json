@@ -21,7 +21,7 @@
   "version": "0.1.0",
   "dependencies": {
     "pareto-core-internals": "^0.1.0",
-    "pareto-core-types": "^0.1.0"
+    "pareto-core-types": "^0.2.0"
   },
-  "content-fingerprint": "11d50f661b0eae18a152d1e4ed547662c7284f91"
+  "content-fingerprint": "5aadae018d8ac54b18ae90bb3d4729a743c8eed7"
 }
