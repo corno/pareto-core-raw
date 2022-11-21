@@ -1,3 +1,4 @@
+export { getEntry } from "./functions/getEntry"
 
 export {
     wrapRawArray,
