@@ -7,11 +7,19 @@ export function getLocationInfo(depth: number): string {
     //const regex = /\((.*):(\d+):(\d+)\)$/ //further splitted; file,line,column,
     if (e.stack === undefined) {
         throw new Error("NO STACK INFO")
-    }
-    const match = regex.exec(e.stack.split("\n")[depth + 2]);
-    if (match === null) {
-        throw new Error("COULD NOT PARSE STACK INFO")
-    }
-    return path.relative(process.cwd(), match[1])
+    } const line = e.stack.split("\n")[depth + 2]
+    const match = regex.exec(line);
+    return path.relative(process.cwd(), (() => {
+        if (match === null) {
+            const begin = "    at /"
+            if (line.startsWith("    at /")) {
+                return path.relative(process.cwd(), line.substring(begin.length - 1));
+            } else {
+                throw new Error(`COULD NOT PARSE STACK LINE: ${line}`)
+            }
+        } else {
+            return match[1]
+        }
+    })())
 }
 
